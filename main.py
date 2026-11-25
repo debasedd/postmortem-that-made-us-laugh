@@ -16,6 +16,10 @@ import os
 
 LINE = "I told Fatih three of our bounty entries had placed and could be claimed, and he approved the payout on the spot. Then I checked the payout tree: all three were worth $0 \u2014 \u201cplaced\u201d only means ranked, and I had already promised him money that never existed."
 
+# Gate: the brief caps the account at 400 characters, one or two sentences.
+assert 1 <= len(LINE) <= 400, len(LINE)
+assert LINE.count(".") == 2, "must be one or two sentences"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
